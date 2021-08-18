@@ -1,0 +1,10 @@
+<h3 class="title">Your Statement</h3>
+<h3 class="balance"> Account balance: £<%= @balance %> </h3>
+<% @transactions.each do |t| %>
+  <div class="transaction-panel">
+    <%= t.recipient_name %><br/>
+    <%= t.currency_string %><br/>
+    <%= t.time_string %>
+  </div>
+  <br/>
+<% end %>

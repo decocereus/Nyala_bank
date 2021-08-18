@@ -1,0 +1,49 @@
+<div class="transaction new">
+  <h2>Send Money</h2>
+
+  <h4 class="balance">Account balance: £<%= @balance %></h4>
+
+  <% @errors != nil && if(@errors.length > 0) %>
+    <div class="errors">
+    <% @errors.each do |e| %>
+      <p class="error">
+        <%= e %>
+      <p/>
+    <% end %>
+    </div>
+  <% end %>
+
+  <%= form_for(@transaction, :url => transactions_path, :method => 'post') do |f| %>
+
+  <div class="field">
+      <%= f.label :recipient_name%><br/>
+      <%= f.text_field :recipient_name, autocomplete: "Recipient Name" %>
+  </div>
+
+  <div class="field">
+      <%= f.label :sort_code%><br/>
+      <%= f.text_field :sort_code, autocomplete: "Sort Code" %>
+  </div>
+
+  <div class="field">
+      <%= f.label :account_number%><br/>
+      <%= f.text_field :account_number, autocomplete: "Account Number" %>
+  </div>
+
+  <div class="field">
+      <%= f.label :amount%><br/>
+      <%= f.number_field :amount, value: number_to_currency(f.object.amount.to_f, delimiter: '', unit: ''), min:0, step: 0.01 %>
+  </div>
+
+  <div class="field">
+      <%= f.label :currency%><br/>
+      <%= f.select :currency, @currencies.map{ |c| [c.isoCode, c.id] } %>
+  </div>
+
+  <br/>
+  <div class="actions">
+      <%= f.submit "Make Transaction" %>
+  </div>
+
+  <% end %>
+</div>

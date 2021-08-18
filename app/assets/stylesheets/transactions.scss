@@ -1,0 +1,42 @@
+// Place all the styles related to the Transactions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+h1,h2,h3,h4,h5 {
+  color: white;
+}
+
+.error {
+  color: red;
+}
+
+.errors {
+  border-style: solid;
+  border-color:black;
+  background-color: white;
+}
+
+.transaction-panel {
+  border-style: solid;
+  border-color:black;
+  background-color: white;
+  display:block;
+  color:black;
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.balance {
+  color:white;
+  font-size:2.4em;
+}
+
+.title{
+  font-size:5.0em;
+  margin-bottom:10%;
+}
